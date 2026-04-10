@@ -1,7 +1,10 @@
 import streamlit as st
 import pickle
 import re
+import nltk
 from nltk.corpus import stopwords
+
+nltk.download('stopwords')
  
 # load model
 model = pickle.load(open("model.pkl", "rb"))
