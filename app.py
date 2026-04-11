@@ -1,11 +1,13 @@
 import streamlit as st
 import pickle
 import re
-STOPWORDS = set([
+
+# Simple stopwords list (no NLTK needed)
+STOPWORDS = {
     "the","is","in","and","to","of","a","for","on","with",
     "that","this","it","as","at","be","by","an","are",
     "was","were","or","from","but","not","you","your"
-])
+}
 
 # load model
 model = pickle.load(open("model.pkl", "rb"))
