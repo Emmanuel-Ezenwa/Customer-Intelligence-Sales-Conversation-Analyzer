@@ -1,11 +1,12 @@
 import streamlit as st
 import pickle
 import re
-import nltk
-from nltk.corpus import stopwords
+STOPWORDS = set([
+    "the","is","in","and","to","of","a","for","on","with",
+    "that","this","it","as","at","be","by","an","are",
+    "was","were","or","from","but","not","you","your"
+])
 
-nltk.download('stopwords')
- 
 # load model
 model = pickle.load(open("model.pkl", "rb"))
 vectorizer = pickle.load(open("vectorizer.pkl", "rb"))
@@ -14,7 +15,7 @@ def clean_text(text):
     text = text.lower()
     text = re.sub(r'[^a-zA-Z0-9\s]', '', text)
     words = text.split()
-    words = [w for w in words if w not in stopwords.words('english')]
+    words = [w for w in words if w not in STOPWORDS]
     return " ".join(words)
 
 def predict_intent(text):
