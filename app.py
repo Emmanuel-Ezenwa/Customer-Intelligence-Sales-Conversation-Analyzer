@@ -2,7 +2,7 @@ import streamlit as st
 import pickle
 import re
 
-# Simple stopwords list (no NLTK needed)
+# Stopwords
 STOPWORDS = {
     "the","is","in","and","to","of","a","for","on","with",
     "that","this","it","as","at","be","by","an","are",
